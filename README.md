@@ -1,1 +1,1 @@
-Movie Review Rate App
+Find and Rate Movies Near you App
