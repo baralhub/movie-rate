@@ -3,8 +3,8 @@ import './MovieIcons.css';
 
 const MovieIcons = (props) => {
     return (
-        <div>
-            MovieIcons
+        <div className="rmdb-moviethumb">
+            <img src={props.image} alt="moviethumb" />
         </div>
     )
 }
