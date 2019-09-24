@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Project : Movie Rating App
 
 #1: Team Members: 
@@ -27,3 +28,6 @@ Project : Movie Rating App
 #7 Github organization: 
         https://github.com/baralhub/movie-rate
 
+=======
+Find and Rate Movies Near you App
+>>>>>>> 71926a5eb1ae9ae7f60b1ba98bda9e203e44054b
