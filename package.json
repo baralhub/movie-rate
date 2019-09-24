@@ -13,8 +13,12 @@
     "node_modules"
   ],
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "express": "4.16.3",
     "mongodb": "3.1.1",
-    "nodemon": "1.18.7"
+    "nodemon": "1.18.7",
+    "react-fontawesome": "^1.6.1"
   }
 }
