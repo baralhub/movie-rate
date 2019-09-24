@@ -5,7 +5,7 @@ import FeaturedImage from '../elements/FeaturedImage/FeaturedImage';
 import SearchBar from '../elements/SearchBar/SearchBar';
 import Grid from '../elements/Grid/Grid';
 import MovieIcons from '../elements/MovieIcons/MovieIcons';
-import ScrollButton from '../elements/ScrollButton/ScrollButton';
+import LoadMoreBtn from '../elements/LoadMoreBtn/LoadMoreBtn';
 import Loader from '../elements/Loader/Loader';
 
 
@@ -22,7 +22,7 @@ class Home extends Component {
     componentDidMount() {
         this.setState({ loading: true });
         // const endpoint = 'https://api.themoviedb.org/3/movie/popular?api_key=836d48f2f9e0a1dc54dab44c89afdeda';
-        const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${this.state.currentPage + 1}`;
+        const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
         this.fetchItems(endpoint);
 
     }
@@ -37,7 +37,8 @@ class Home extends Component {
         })
     
         if(searchKeyword === '') {
-            endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+            endpoint = `${API_URL}discover/movie?api_key=${API_KEY}&primary_release_date.gte=2019-09-21&primary_release_date.lte=2019-09-28&language=en-US&page=1`;
+            // endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
         } else {
             endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${searchKeyword}`;
         }
@@ -45,14 +46,14 @@ class Home extends Component {
 
     }
 
-    loadMore = () => {
+    loadMoreItems = () => {
         let endpoint = '';
         this.setState({ loading: true });
 
         if (this.state.searchKeyword === '') {
-            endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${this.state.currentPage + 1}`;
+            endpoint = `${API_URL}discover/movie?api_key=${API_KEY}&primary_release_date.gte=2019-09-21&primary_release_date.lte=2019-09-28&language=en-US&page=${this.state.currentPage + 1}`;
         } else {
-            endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query${this.state.searchKeyword}&page=${this.state.currentPage + 1}`;
+            endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${this.state.searchKeyword}&page=${this.state.currentPage + 1}`;
         }
         this.fetchItems(endpoint);
     }
@@ -62,7 +63,7 @@ class Home extends Component {
         .then(result => result.json())
         .then(result => {
             this.setState ({
-                movies: [...this.state.movies, result.results],
+                movies: [...this.state.movies, ...result.results],
                 featuredImage: this.state.featuredImage || result.results[0],
                 loading: false,
                 currentPage: result.page,
@@ -77,7 +78,7 @@ class Home extends Component {
                 {this.state.featuredImage ?
                 <div>
                 <FeaturedImage 
-                image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}/${this.state.featuredImage.backdrop_path}`}
+                image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${this.state.featuredImage.backdrop_path}`}
                 title={this.state.featuredImage.original_title}
                 text={this.state.featuredImage.overview}
 
@@ -85,9 +86,33 @@ class Home extends Component {
                 <SearchBar callback={this.searchItems} />
                 </div> : null }
                
-                <Grid />
-                <Loader />
-                <ScrollButton />
+                <div className="rmdb-home-grid">
+                    <Grid
+                    header={this.state.searchKeyword ? 'Search Result' : 'Now Playing Movies in Theaters Near You'}
+                    loading={this.state.loading}
+                    >
+                        
+                    {this.state.movies.map ( (element, i) => {
+                        return (<MovieIcons
+                        key={i}
+                        clickable={true}
+                        image={element.poster_path ? `${IMAGE_BASE_URL}${POSTER_SIZE}${element.poster_path}` : './images/no_image.jpg'}
+                        movieId={element.id}
+                        movieName={element.original_title}
+                        
+                        />
+                        )
+                        
+                    })}  
+                    
+                    </Grid>
+                    {this.state.loading ? <Loader /> : null}
+                    {(this.state.currentPage <= this.state.totalPages && !this.state.loading) ?
+                    <LoadMoreBtn text="Show More Movies >>>" onClick={this.loadMoreItems} />
+                    :null }
+                </div>
+               
+                
                 
             </div>
         )

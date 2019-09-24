@@ -25,7 +25,7 @@ class SearchBar extends Component {
                     <input
                     type="text"
                     className="rmdb-searchbar-input"
-                    placeholder="Search"
+                    placeholder="Enter Keywords to Look up a Movie"
                     onChange = {this.doSearch}
                     value={this.state.value}
                     />
