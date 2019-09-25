@@ -5,13 +5,19 @@
 
 .rmdb-grid-content {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-gap: 40px;
     position: relative;
 }
 
 .rmdb-grid-element {
-    animation: animateGrid 5s;
+    animation: animateGrid 1s;
+}
+
+.rmdb-grid-element:hover {
+    transform: scale(2);
+    border-radius: 50%;
+    transition: all 0.3s ease;
 }
 
 @keyframes animateGrid {
