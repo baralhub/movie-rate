@@ -1,17 +1,17 @@
 .rmdb-grid h1 {
     font-family: 'Abel', sans-serif;
-    font-size: 42px;
+    font-size: 60px;
 }
 
 .rmdb-grid-content {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
     position: relative;
 }
 
 .rmdb-grid-element {
-    animation: animateGrid 2s;
+    animation: animateGrid 5s;
 }
 
 @keyframes animateGrid {
@@ -19,7 +19,7 @@
         opacity: 0;
     }
     to {
-        opacity: 5;
+        opacity: 9;
     }
 }
 

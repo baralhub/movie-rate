@@ -1,120 +1,125 @@
 .rmdb-movieinfo {
-  background-size: cover !important;
-  background-position: center !important;
-  width: 100%;
-  padding: 40px 20px;
-  box-sizing: border-box;
-  animation: animateMovieinfo 1s;
+    background-size: cover !important;
+    background-position: center !important;
+    width: 100%;
+    padding: 40px 20px;
+    box-sizing: content-box;
+    animation: animateMovieinfo 4s;
 }
 
 @keyframes animateMovieinfo {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 7;
+    }
 }
 
 .rmdb-movieinfo-content {
-  max-width: 1280px;
-  min-height: 450px;
-  margin: 0 auto;
-  background: rgb(0, 0, 0, 0.7);
-  border-radius: 20px;
-  position: relative;
+    max-width: 1280px;
+    min-height: 450px;
+    margin: 0 auto;
+    background: rgb(0, 0, 0, 0.7);
+    border-radius: 70px;
+    position: relative;
 }
 
 .rmdb-movieinfo-thumb {
-  width: 300px;
-  float: left;
+    width: 300px;
+    float: right;
 }
 
 .rmdb-movieinfo-text {
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 40px;
-  color: #fff;
-  overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 30px;
+    color: #fff;
+    overflow: hidden;
+    margin-bottom: 22px;
 }
 
 .rmdb-movieinfo-text h1 {
-  font-family: 'Abel', sans-serif;
-  font-size: 48px;
-  margin: 0;
+    font-family: 'Abel', sans-serif;
+    font-size: 50px;
+    margin: 0;
 }
 
 .rmdb-movieinfo-text h3 {
-  font-size: 16px;
-  line-height: 0;
-  margin-top: 30px;
+    font-size: 32px;
+    line-height: 0;
+    margin-top: 26px;
 }
 
 .rmdb-movieinfo-text p {
-  font-family: 'Abel', sans-serif;
-  font-size: 18px;
-  line-height: 26px;
+    font-family: 'Abel', sans-serif;
+    font-size: 22px;
+    line-height: 40px;
 }
 
 .rmdb-rating {
-  width: 190px;
-  height: 20px;
-  margin-top: 20px;
-  position: relative;
+    width: 190px;
+    height: 30px;
+    margin-top: 30px;
+    position: relative;
+    font-size: 20px;
 }
 
 .rmdb-score {
-  position: absolute;
-  margin: 0;
-  right: 0px;
-  top: -3px;
+    position: absolute;
+    margin: 0;
+    right: -30px;
+    top: -1px;
+    font-size: 25px;
+    font-style: initial
 }
 
 .rmdb-director {
-  margin: 0;
+    margin: 10;
+    margin-top: 45px;
 }
 
 .fa-film {
-  position: absolute;
-  bottom: 40px;
-  right: 40px;
-  color: #fff;
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    color: #fff;
 }
 
 meter::-webkit-meter-bar {
-  background: #fff;
-  width: 150px;
+    background: #fff;
+    width: 150px;
 }
+
 meter::-webkit-meter-optimum-value {
-  background: linear-gradient(to bottom, #16d47b) !important;
+    background: linear-gradient(to bottom, #16d47b) !important;
 }
+
 meter::-webkit-meter-suboptimum-value {
-  background: linear-gradient(to bottom, #fbb450) !important;
+    background: linear-gradient(to bottom, #fbb450) !important;
 }
+
 meter::-webkit-meter-even-less-good-value {
-  background: linear-gradient(to bottom, #ee5f5b) !important;
+    background: linear-gradient(to bottom, #ee5f5b) !important;
 }
 
 @media screen and (max-width: 1000px) {
-  .rmdb-movieinfo-text h1 {
-    font-size: 32px !important;
-  }
+    .rmdb-movieinfo-text h1 {
+        font-size: 32px !important;
+    }
 }
 
 @media screen and (max-width: 768px) {
-  .rmdb-movieinfo {
-    min-height: 600px;
-    height: auto;
-  }
-
-  .rmdb-movieinfo-thumb {
-    width: 100% !important;
-  }
-
-  .fa-film {
-    display: none;
-  }
-
-  .rmdb-movieinfo-text h1 {
-    font-size: 32px;
-  }  
+    .rmdb-movieinfo {
+        min-height: 600px;
+        height: auto;
+    }
+    .rmdb-movieinfo-thumb {
+        width: 100% !important;
+    }
+    .fa-film {
+        display: none;
+    }
+    .rmdb-movieinfo-text h1 {
+        font-size: 32px;
+    }
 }
