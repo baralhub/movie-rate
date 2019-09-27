@@ -1,6 +1,7 @@
 import React from 'react';
 import './MovieIcons.css';
 import { Link } from 'react-router-dom';
+import propTypes from 'prop-types';
 
 const MovieIcons = (props) => {
     return (
@@ -14,6 +15,13 @@ const MovieIcons = (props) => {
             }
         </div>
     )
+}
+
+MovieIcons.propTypes = {
+    image: propTypes.string,
+    movieId: propTypes.number,
+    movieName: propTypes.string
+
 }
 
 export default MovieIcons;

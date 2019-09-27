@@ -16,8 +16,7 @@
 
 .rmdb-grid-element:hover {
     transform: scale(2);
-    border-radius: 50%;
-    transition: all 0.3s ease;
+    transition: all 0.6s ease;
 }
 
 @keyframes animateGrid {
