@@ -20,11 +20,15 @@ class Home extends Component {
     }
 
     componentDidMount() {
+        if (localStorage.getItem('HomeState')) {
+            const state = JSON.parse(localStorage.getItem('HomeState'));
+            this.setState({ ...state });
+        } else {
         this.setState({ loading: true });
         // const endpoint = 'https://api.themoviedb.org/3/movie/popular?api_key=836d48f2f9e0a1dc54dab44c89afdeda';
         const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
         this.fetchItems(endpoint);
-
+        }
     }
 
     searchItems = (searchKeyword) => {
@@ -68,8 +72,13 @@ class Home extends Component {
                 loading: false,
                 currentPage: result.page,
                 totalPages: result.total_pages
+             }, ()=> {
+                 if (this.state.searchKeyword === ""){
+                 localStorage.setItem('HomeState', JSON.stringify(this.state));
+                 }
              })
          })
+         .catch(error => console.error('Error:', error))
         }
         
     render() {

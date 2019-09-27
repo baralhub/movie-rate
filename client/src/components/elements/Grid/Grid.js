@@ -1,5 +1,6 @@
 import React from 'react';
 import './Grid.css';
+import propTypes from 'prop-types';
 
 const Grid = (props) => {
     const renderElements = () => {
@@ -22,6 +23,9 @@ const Grid = (props) => {
         </div>
       )
     }
-    
+Grid.propTypes = {
+    header: propTypes.string,
+    loading: propTypes.bool.isRequired
+}
 
 export default Grid;
