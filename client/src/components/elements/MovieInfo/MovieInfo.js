@@ -25,6 +25,7 @@ const MovieInfo = (props) => {
           <h3>RATE ME</h3>
           <div className="rmdb-rating">
             <meter min="0" max="100" optimum="100" low="40" high="70" value={props.movie.vote_average * 10}></meter>
+            <input id="slider3" type ="range" min ="0.5" max="10.0" step ="0.5" value={props.movie.vote_average * 10}/>
             <h2><label className="rmdb-score">{props.movie.vote_average}</label></h2>
           </div><br/><div className="rmdb-director"><br/>
           {props.directors.length > 1 ? <h3>DIRECTORS</h3> : <h3>DIRECTOR</h3>}

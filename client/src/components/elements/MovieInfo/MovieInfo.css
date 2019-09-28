@@ -68,9 +68,9 @@
 .rmdb-score {
     position: absolute;
     margin: 0;
-    right: -250px;
-    top: -4px;
-    font-size: 2vw;
+    right: -350px;
+    top: -9px;
+    font-size: 2.5vw;
     font-weight: bolder;
 }
 
