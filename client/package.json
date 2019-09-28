@@ -1,7 +1,11 @@
 {
-    "name": "react_movie_db_course",
+    "name": "react_movie_rate",
     "version": "0.2.0",
     "private": true,
+    "engines": {
+        "node": "12.8.1",
+        "npm": "6.10.3"
+    },
     "dependencies": {
         "prop-types": "^15.7.2",
         "react": "^16.8.6",
