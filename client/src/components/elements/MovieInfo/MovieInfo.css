@@ -2,7 +2,7 @@
     background-size: cover !important;
     background-position: center !important;
     width: 100%;
-    padding: 40px 20px;
+    padding: 20px 5px;
     box-sizing: content-box;
     animation: animateMovieinfo 4s;
 }
@@ -26,8 +26,9 @@
 }
 
 .rmdb-movieinfo-thumb {
-    width: 300px;
+    width: 330px;
     float: right;
+    transition: all 0.2s ease;
 }
 
 .rmdb-movieinfo-text {
@@ -59,19 +60,19 @@
 .rmdb-rating {
     width: 190px;
     height: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 1px;
+    margin-bottom: 1px;
     position: absolute;
-    font-size: 25px;
+    font-weight: bolder;
 }
 
 .rmdb-score {
-    position: absolute;
-    margin: 0;
-    right: -350px;
-    top: -9px;
-    font-size: 2.5vw;
+    float: right;
+    margin-top: -25px;
+    font-size: 4vw;
     font-weight: bolder;
+    color: #fff;
+    /* position: absolute; */
 }
 
 .rmdb-director {
@@ -105,6 +106,49 @@ meter::-webkit-meter-suboptimum-value {
 
 meter::-webkit-meter-even-less-good-value {
     background: linear-gradient(to bottom, #ee5f5b) !important;
+}
+
+.rate {
+    float: left;
+    height: 70px;
+    padding: 0 5px;
+    margin-top: 90px;
+}
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 50px;
+    color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rate>input:checked~label {
+    color: #ffc700;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #deb217;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: #c59b08;
 }
 
 @media screen and (max-width: 1000px) {
